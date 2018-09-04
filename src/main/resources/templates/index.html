@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+
+	<title>AlunoApp</title>
+	
+</head>
+<body>
+	<header>	
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#"> 
+		      </a>
+		      	<a type="button" href="/CadastrarAluno" class="btn btn-primary navbar-btn">Cadastrar Alunos</a>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+	<div class="container">
+
+		        <label for="" class=" control-label"><h4>Lista de alunos:</h4></label>
+                    <div class="col-sm-12" >
+
+                        <table class="table" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>NOME</th>
+                                    <th>SOBRENOME</th>
+                                    <th>IDADE</th>
+                                    <th>BAIRRO</th>
+                                    <th>AÇÕES</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+								<tr th:each="aluno : ${alunos}">
+									<td><span th:text="${aluno.nome}"></span></td>
+									<td><span th:text="${aluno.sobrenome}"></span></td>
+									<td><span th:text="${aluno.idade}"></span></td>
+									<td><span th:text="${aluno.bairro}"></span></td>
+								    <td><a th:href="${(#mvc.url('AC#buscarAluno').arg(0, aluno.codigo)).build()}" class="btn btn-warning">Visualizar</a>
+								    <a th:href="${(#mvc.url('AC#deletarAluno').arg(0, aluno.codigo)).build()}" class="btn btn-danger">Deletar</a>
+								    </td>
+									
+									
+								</tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+	</div>
+	
+
+	
+</body>
+<script src="js/bootstrap.min.js"></script>
+</html>

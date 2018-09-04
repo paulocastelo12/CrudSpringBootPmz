@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<link href="css/bootstrap.css" rel="stylesheet"/>
+	<title>AlunoApp</title>
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#"> 
+		      </a>
+		      	<a type="button" href="/alunos" class="btn btn-primary navbar-btn">Listar Alunos</a>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+
+	<div class="container" th:each="aluno : ${aluno}">
+		<form method="post">
+		  <div class="form-group">
+		    <label for="nome">Nome: </label>
+		    <input type="text" class="form-control" th:field="${aluno.nome}" id="nome" name="nome"/>
+		  </div>
+		   <div class="form-group">
+		    <label for="Sobrenome">Sobrenome:</label>
+		    <input type="text" class="form-control" th:field="${aluno.sobrenome}" id="sobrenome" name="sobrenome"/>
+		  </div>
+		   <div class="form-group">
+		    <label for="idade">Idade:</label>
+		    <input type="text" class="form-control" th:field="${aluno.idade}" id="idade" name="idade"/>
+		  </div>
+		   <div class="form-group">
+		    <label for="bairro">Nome:</label>
+		    <input type="text" class="form-control" th:field="${aluno.bairro}" id="bairro" name="bairro"/>
+		  </div>
+
+		</form>
+	</div>
+
+</body>
+
+<script src="js/bootstrap.min.js"></script>
+</html>
